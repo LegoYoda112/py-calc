@@ -62,4 +62,4 @@ def send_input(input_string):
     eel.write_output(output, error)
 
 # Start the app
-eel.start('app.html')
+eel.start('app.html', size=(700, 500))
