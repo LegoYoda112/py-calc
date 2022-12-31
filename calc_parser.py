@@ -7,6 +7,8 @@ from pint import UnitRegistry
 
 # Set up units
 ureg = UnitRegistry()
+# Units to parse
+unit_list = ["m", "cm", "mm", "km", "s"]
 
 def parse(input_text, output_only = False):
     # TODO: Make this a class?
@@ -38,6 +40,10 @@ def parse(input_text, output_only = False):
         chars_to_pad = ('\=', '\+', '\*', '\[', '\]', '\,')
         for char in chars_to_pad:
             line = re.sub(char, " " + char[-1] + " ", line)
+
+        # Pad units
+        # for unit in unit_list:
+        #     line = re.sub(unit, " " + unit + " ", line)
 
         # Does something to arrays, figure out what?
         line = re.sub('[ ]+', " ", line)
@@ -72,8 +78,15 @@ def parse(input_text, output_only = False):
             
             # For each element in the split check if it's a variable in our context
             # if so, replace it with context['variable_name'] so it's evaluated correctly
+
+            # if it's a unit, add "* ureg.unit" TODO: make this work on both sides
+            # e.g. 10 m / s
             for element in eval_line_split:
-                if element in context.keys():
+                if element in unit_list:
+                    new_element = "ureg." + element
+
+                    new_line_split.append(new_element)
+                elif element in context.keys():
                     # print(element)
                     new_element = "context['" + element + "']"
 
