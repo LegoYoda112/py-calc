@@ -3,6 +3,8 @@
 html,body{
   margin: 0;
   padding: 0;
+
+  overflow: hidden;
 }
 
 :root {
@@ -46,7 +48,7 @@ html,body{
   padding: 5px;
   
   box-sizing: border-box;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 #output {
@@ -230,3 +232,23 @@ html,body{
 .equal{
   color: var(--equal-color);
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(0,0,0,0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(60,60,60);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(100,100,100);
+} 
