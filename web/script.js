@@ -8,6 +8,7 @@ let output_holder
 let error_dot
 let time_info
 let var_info
+let line_error_break_container
 
 let file_menu
 let file_list
@@ -33,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
   save_menu = document.getElementById("save-menu");
   save_name = document.getElementById("save-name");
   save_dot = document.getElementById("save-dot");
+  line_error_break_container = document.getElementById("line-error-break-container");
+  line_error = document.getElementById("line-error");
+  error_info = document.getElementById("error-info");
 
   // Start an update timer to recalc at 10Hz
   let update_timer=setInterval(update, 100);
@@ -44,6 +48,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
     update_display_text();
     update_input_height();
   }, false);  
+
+  // On error dot mouseover, show the error message + the line
+  error_dot.addEventListener("mouseover", function() {
+    error_info.style.color = "rgb(220,220,220)";
+    error_info.style.backgroundColor = "rgb(145, 38, 38)";
+    line_error.style.backgroundColor = "rgb(145, 38, 38, 1.0)";
+  })
+  // On mouseout, hide
+  error_dot.addEventListener("mouseout", function() {
+    error_info.style.color = "rgb(0,0,0,0)";
+    error_info.style.backgroundColor = "rgb(0,0,0,0)";
+    line_error.style.backgroundColor = "rgb(0,0,0,0)";
+  })
 
   // Update display text as the mouse moves (mainly for highlighting)
   input.addEventListener("mousemove", function() {
@@ -102,14 +119,27 @@ function write_output(output_text, error) {
   if(!error){
     // Error dot transparent
     error_dot.style.backgroundColor = "rgb(145, 38, 38, 0)";
+    line_error.style.backgroundColor = "rgb(145, 38, 38, 0.0)";
 
     // Set output text value
     output.innerHTML = output_text;
   }else{
-    // Error dot red!
-    // TODO: Setup a way to view the error trace
-    console.log("error");
-    error_dot.style.backgroundColor = "rgb(199, 26, 26)";
+    // Log error
+    console.warn(error);
+
+    // Set correct offset for error line
+    line_error_break_container.innerHTML = "";
+    line_error_output = ""
+    for(let i = 0; i < error[0]; i++){
+      line_error_output += "<br>"
+    }
+    line_error_break_container.innerHTML = line_error_output;
+
+    // Set text in error display
+    error_info.innerHTML = error[1];
+
+    // Make the error dot red!
+    error_dot.style.backgroundColor = "rgb(200, 45, 45)";
   }
 }
 
