@@ -36,21 +36,16 @@ def send_input(input_string):
     error = False
     time_elapsed = 0.0
 
-    try:
-        
-        # Time execution
-        start_time = time.time()
+    # Time execution
+    start_time = time.time()
 
-        # Parse, calculate and store output
-        output, context = calc_parser.parse(input_string, True)
-        time_elapsed = time.time() - start_time
+    # Parse, calculate and store output
+    output, context, error = calc_parser.parse(input_string, True)
+    time_elapsed = time.time() - start_time
 
-    # Print errors
-    # TODO: Pass this back to the app
-    except Exception as e:
-        output = str(e)
-        print(e)
-        error = True
+    # If there's an error, set the error text
+    # if error != None:
+    #    error = True
     
     # Set diagnostics
     eel.set_timer(round(time_elapsed * 1000))
@@ -58,7 +53,6 @@ def send_input(input_string):
         eel.set_var_num(len(context))
 
     # Write the output
-    print(error)
     eel.write_output(output, error)
 
 # Start the app
