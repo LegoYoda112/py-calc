@@ -49,11 +49,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
     update_input_height();
   }, false);  
 
+  // On error dot mouseover, show the error message + the line
   error_dot.addEventListener("mouseover", function() {
     error_info.style.color = "rgb(220,220,220)";
     error_info.style.backgroundColor = "rgb(145, 38, 38)";
     line_error.style.backgroundColor = "rgb(145, 38, 38, 1.0)";
   })
+  // On mouseout, hide
   error_dot.addEventListener("mouseout", function() {
     error_info.style.color = "rgb(0,0,0,0)";
     error_info.style.backgroundColor = "rgb(0,0,0,0)";
@@ -116,11 +118,10 @@ function write_output(output_text, error) {
     // Set output text value
     output.innerHTML = output_text;
   }else{
-    // Error dot red!
-    // TODO: Setup a way to view the error trace
+    // Log error
     console.warn(error);
 
-    // Error line code, not sure I like it, but saving it for later
+    // Set correct offset for error line
     line_error_break_container.innerHTML = "";
     line_error_output = ""
     for(let i = 0; i < error[0]; i++){
@@ -128,8 +129,10 @@ function write_output(output_text, error) {
     }
     line_error_break_container.innerHTML = line_error_output;
 
+    // Set text in error display
     error_info.innerHTML = error[1];
 
+    // Make the error dot red!
     error_dot.style.backgroundColor = "rgb(200, 45, 45)";
   }
 }
