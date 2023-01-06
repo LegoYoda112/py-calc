@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     update_input_height();
   }, false);  
 
+  error_info.style.color = "rgb(0,0,0,0)";
   // On error dot mouseover, show the error message + the line
   error_dot.addEventListener("mouseover", function() {
     error_info.style.color = "rgb(220,220,220)";
