@@ -90,9 +90,9 @@ function update_display_text(){
 
 // Update the height of the input box
 function update_input_height(){
-  input.style.height = "100%";
+  input.style.height = "90%";
   input.style.height = (input.scrollHeight) + "px";
-  input.style.width = "100%";
+  input.style.width = "90%";
   input.style.width = (input.scrollWidth) + "px";
 }
 

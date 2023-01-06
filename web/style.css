@@ -29,8 +29,8 @@ html,body{
   padding: 10px;
   box-sizing: border-box;
 
-  overflow: show;
-  white-space: pre-wrap;
+  overflow: visible;
+  white-space: pre;
 
   caret-color: var(--highlight-text-color);
 
@@ -62,6 +62,9 @@ html,body{
   border: none;
   /* overflow: scroll; */
   outline: none;
+
+  width: 80%;
+  height: 80%;
 
   color: rgb(0,0,0,0);
 
