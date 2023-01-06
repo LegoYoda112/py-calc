@@ -25,14 +25,16 @@ html,body{
   font-family: 'Roboto Mono', monospace;
   font-size: 1.1em;
   
-  width: 99%;
+  /* width: 99%; */
   padding: 10px;
   box-sizing: border-box;
 
-  overflow-y: hidden;
+  overflow: show;
   white-space: pre-wrap;
 
   caret-color: var(--highlight-text-color);
+
+  resize: none;
 }
 
 .fullscreen-padding{
@@ -42,13 +44,13 @@ html,body{
   
   top: 0;
   left: 0;
-  width: 100vw;
   height: 100vh;
   
   padding: 5px;
   
   box-sizing: border-box;
   overflow-y: scroll;
+  overflow-X: scroll;
 }
 
 #output {
@@ -58,7 +60,7 @@ html,body{
 
 #input{
   border: none;
-  overflow: auto;
+  /* overflow: scroll; */
   outline: none;
 
   color: rgb(0,0,0,0);
@@ -66,6 +68,8 @@ html,body{
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+
+  white-space: pre;
 
   resize: none;
 }
@@ -252,3 +256,7 @@ html,body{
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(100,100,100);
 } 
+
+::-webkit-scrollbar-corner { 
+  background: rgba(0,0,0,0.5); 
+}
