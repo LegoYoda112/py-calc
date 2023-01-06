@@ -60,11 +60,10 @@ html,body{
 
 #input{
   border: none;
-  /* overflow: scroll; */
   outline: none;
 
   width: 80%;
-  height: 80%;
+  height: 90vh;
 
   color: rgb(0,0,0,0);
 
@@ -243,6 +242,7 @@ html,body{
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
+  /* height: 7px;    */
 }
 
 /* Track */

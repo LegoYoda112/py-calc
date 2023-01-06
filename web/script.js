@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   let update_timer=setInterval(update, 100);
 
   // Update text and input box height as text is typed into it
-  input.setAttribute("style", "height:" + (input.scrollHeight) + "px;overflow-y:hidden;");
+  // input.setAttribute("style", "height:" + (input.scrollHeight) + "px;overflow-y:hidden;");
   input.addEventListener("input", function () {
     // Update the display text
     update_display_text();
@@ -91,9 +91,9 @@ function update_display_text(){
 // Update the height of the input box
 function update_input_height(){
   input.style.height = "90%";
-  input.style.height = (input.scrollHeight) + "px";
+  input.style.height = (input.scrollHeight + 10) + "px";
   input.style.width = "90%";
-  input.style.width = (input.scrollWidth) + "px";
+  input.style.width = (input.scrollWidth + 10) + "px";
 }
 
 // Write the calculator output to the output html element
