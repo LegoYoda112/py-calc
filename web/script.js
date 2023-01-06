@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   let update_timer=setInterval(update, 100);
 
   // Update text and input box height as text is typed into it
-  input.setAttribute("style", "height:" + (input.scrollHeight) + "px;overflow-y:hidden;");
+  // input.setAttribute("style", "height:" + (input.scrollHeight) + "px;overflow-y:hidden;");
   input.addEventListener("input", function () {
     // Update the display text
     update_display_text();
@@ -69,6 +69,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
 // - Output (green result text)
 function update_display_text(){
 
+  // console.log(input.value)
+
+  // display_text.innerHTML = input_text;
+
   // Syntax highlighting!
   input_text = input.value + '\n';
   input_text = input_text.replaceAll(/([=\/\*])/g, "<span class = 'equal'>$1</span>")
@@ -77,17 +81,19 @@ function update_display_text(){
   display_text.innerHTML = input_text;
 
   // Selected highlighting
-  var start = input.selectionStart;
-  var finish = input.selectionEnd;
-  var selected_text = input.value.substring(start, finish);
-  regex = new RegExp("("+selected_text+")","g");
-  display_text_selected.innerHTML = input.value.replaceAll(regex, "<span class = 'highlight'>$1</span>")
+  // var start = input.selectionStart;
+  // var finish = input.selectionEnd;
+  // var selected_text = input.value.substring(start, finish);
+  // regex = new RegExp("("+selected_text+")","g");
+  // display_text_selected.innerHTML = input.value.replaceAll(regex, "<span class = 'highlight'>$1</span>")
 }
 
 // Update the height of the input box
 function update_input_height(){
-  input.style.height = 0;
-  input.style.height = (input.scrollHeight) + "px";
+  input.style.height = "90%";
+  input.style.height = (input.scrollHeight + 10) + "px";
+  input.style.width = "90%";
+  input.style.width = (input.scrollWidth + 10) + "px";
 }
 
 // Write the calculator output to the output html element
