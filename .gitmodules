@@ -1,3 +1,6 @@
 [submodule "python/modules/pint"]
 	path = python/modules/pint
 	url = https://github.com/hgrecco/pint.git
+[submodule "python/modules/numpy"]
+	path = python/modules/numpy
+	url = https://github.com/numpy/numpy
