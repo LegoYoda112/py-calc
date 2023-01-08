@@ -1,0 +1,3 @@
+[submodule "python/modules/pint"]
+	path = python/modules/pint
+	url = https://github.com/hgrecco/pint.git
