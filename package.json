@@ -1,0 +1,33 @@
+{
+  "name": "py-calc",
+  "version": "0.0.0",
+  "description": "A python based live calculator designed for engineering",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LegoYoda112/py-calc.git"
+  },
+  "author": "Thomas Godden",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/LegoYoda112/py-calc/issues"
+  },
+  "homepage": "https://github.com/LegoYoda112/py-calc#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "electron": "^22.0.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}
